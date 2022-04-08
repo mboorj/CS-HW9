@@ -34,6 +34,9 @@ class Cities {
   void add_city(const coord_t newCity) {
       cityVect_.push_back(newCity);
   }
+  // An accessor to get a read only reference to the cityVect_ to look at the
+  // cities in it
+  vector<coord_t>& return_cities() const {return const cityVect_ &;}
  private:
     vector<coord_t> cityVect_;
 };
