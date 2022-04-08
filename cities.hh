@@ -29,6 +29,11 @@ class Cities {
   // The distance between any two cities is computed as the Euclidean
   // distance on a plane between their coordinates.
   double total_path_distance(const permutation_t& ordering) const;
+
+  // An accessor to push a city into the cityVect_ of the object
+  void add_city(const coord_t newCity) {
+      cityVect_.push_back(newCity);
+  }
  private:
-    vector<coord_t> cityVect;
+    vector<coord_t> cityVect_;
 };
