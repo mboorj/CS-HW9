@@ -52,7 +52,11 @@ int debug_generator(int starter){ return starter-1; }
 
 ////////////////////////////////////////////////////////////////////////////////
 // Random number generator to call in random_shuffle in random_permutation
-int random_generator(int starter){ return starter-1; }
+int random_generator(int starter){
+  std::default_random_engine generator;
+  std::uniform_int_distribution<int> distribution(0, starter);
+  return distribution(generator);
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Generates and returns a new permutation of all the numbers from 0 to len-1
@@ -63,7 +67,7 @@ Cities::permutation_t random_permutation(unsigned len){
     perm.push_back(i);
     i++;
   }
-  std::random_shuffle(perm.begin(), perm.end(), debug_generator);
+  std::random_shuffle(perm.begin(), perm.end(), random_generator);
   return perm;
 }
 

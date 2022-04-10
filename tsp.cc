@@ -21,7 +21,7 @@ int main(int argc, char* argv[]){
   double shortestLen = map.total_path_distance(shortestRoute);
   std::cout << "0\t" << shortestLen << "\n";    // Prints the distance of the original setup
 
-  int someMax = 1000;
+  int someMax = 1000000;
   int i = 1;
   int len = map.return_cities().size();
   while (i < someMax){  // Repeatedly makes new random orderings and sees if they
