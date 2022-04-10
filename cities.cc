@@ -1,5 +1,5 @@
 #include "cities.hh"
-
+#include <algorithm>
 ////////////////////////////////////////////////////////////////////////////////
 // constructor, creates vector of coordinates
 Cities::Cities(std::vector<coord_t> cities)
@@ -47,11 +47,11 @@ double Cities::total_path_distance(const permutation_t& ordering) const {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Non-random number generator to call in random_shuffle for testing
+// Non-random number generator to call in random_shuffle for testing, depreciated
 int debug_generator(int starter){ return starter-1; }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Random number generator to call in random_shuffle in random_permutation
+// Random number generator to call in random_shuffle in random_permutation, depreciated
 int random_generator(int starter){
   std::default_random_engine generator;
   std::uniform_int_distribution<int> distribution(0, starter);
@@ -67,7 +67,11 @@ Cities::permutation_t random_permutation(unsigned len){
     perm.push_back(i);
     i++;
   }
-  std::random_shuffle(perm.begin(), perm.end(), random_generator);
+
+  std::random_device rd;
+  std::mt19937 g(rd()); // uses computer's randomization device to get create a random number generator
+
+  std::shuffle(perm.begin(), perm.end(), g); // creates a random permutation on numbers 0 to len-1
   return perm;
 }
 
