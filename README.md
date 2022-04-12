@@ -3,7 +3,7 @@ Worked on by Mollie Boor and Tiago Beck.
 
 We included a makefile for easy construction.
 ### Cities
-- **constructor:** avalible as default constructor, or taking a vector of pairs. Stores the vector of pairs as the member cityVect_
+- **constructor:** available as default constructor, or taking a vector of pairs. Stores the vector of pairs as the member cityVect_
 - **reorder:** takes a vector of integers and returns an ordering of cityVect_ based on the integer vector. For example, the output of ```reorder({1,3,2})``` would be ```{cityVect[1],cityVect_[3], cityVect_[2]}```.
 - **pair_dist:** applies the distance formula to two city coordinates.
 - **total_path_dist:** takes a route and calculates and sums the length of each edge in the cycle.
