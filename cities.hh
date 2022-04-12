@@ -41,9 +41,7 @@ class Cities {
   double total_path_distance(const permutation_t& ordering) const;
 
   // An accessor to push a city into the cityVect_ of the object
-  void add_city(const coord_t newCity) {
-      cityVect_.push_back(newCity);
-  }
+  void add_city(const coord_t newCity);
   // An accessor to get a read only reference to the cityVect_ to look at the
   // cities in it
   const std::vector<coord_t>& return_cities() const {return cityVect_;}

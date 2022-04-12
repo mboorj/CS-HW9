@@ -47,18 +47,6 @@ double Cities::total_path_distance(const permutation_t& ordering) const {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Non-random number generator to call in random_shuffle for testing, depreciated
-int debug_generator(int starter){ return starter-1; }
-
-////////////////////////////////////////////////////////////////////////////////
-// Random number generator to call in random_shuffle in random_permutation, depreciated
-int random_generator(int starter){
-  std::default_random_engine generator;
-  std::uniform_int_distribution<int> distribution(0, starter);
-  return distribution(generator);
-}
-
-////////////////////////////////////////////////////////////////////////////////
 // Generates and returns a new permutation of all the numbers from 0 to len-1
 Cities::permutation_t random_permutation(unsigned len){
   std::vector<unsigned int> perm;
@@ -73,6 +61,12 @@ Cities::permutation_t random_permutation(unsigned len){
 
   std::shuffle(perm.begin(), perm.end(), g); // creates a random permutation on numbers 0 to len-1
   return perm;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// An accessor to push a city into the cityVect_ of the object
+void Cities::add_city(const Cities::coord_t newCity) {
+    cityVect_.push_back(newCity);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
